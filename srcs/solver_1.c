@@ -6,14 +6,13 @@
 /*   By: rofeldsp <rofeldsp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 12:34:50 by rofeldsp          #+#    #+#             */
-/*   Updated: 2019/10/27 12:34:50 by rofeldsp         ###   ########.fr       */
+/*   Updated: 2019/10/31 19:54:59 by atammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "fillit.h"
-#include "../includes/fillit.h"
+#include "fillit.h"
 
-node			*move_to_start(node *tetr)
+t_filist		*move_to_start(t_filist *tetr)
 {
 	tetr->tetromap = tetr->buff;
 	tetr->line = 0;
@@ -23,7 +22,7 @@ node			*move_to_start(node *tetr)
 	return (tetr);
 }
 
-int				fill_map(uint16_t *map, int sqrsize, node *tetr)
+int				fill_map(uint16_t *map, int sqrsize, t_filist *tetr)
 {
 	while (1)
 	{
@@ -64,7 +63,7 @@ uint16_t		*create_map(void)
 	return (map);
 }
 
-node			*move_tetrs_back(node *tetr)
+t_filist		*move_tetrs_back(t_filist *tetr)
 {
 	while (tetr->next != NULL)
 	{
@@ -79,7 +78,7 @@ node			*move_tetrs_back(node *tetr)
 	return (tetr);
 }
 
-int				deploy(node *tetr, int tetramount)
+int				deploy(t_filist *tetr, int tetramount)
 {
 	uint16_t		*map;
 	int				sqrsize;

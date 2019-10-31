@@ -6,15 +6,15 @@
 /*   By: rofeldsp <rofeldsp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 12:36:37 by rofeldsp          #+#    #+#             */
-/*   Updated: 2019/10/27 16:51:38 by rofeldsp         ###   ########.fr       */
+/*   Updated: 2019/10/31 18:29:08 by atammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h" //
+#include "fillit.h"
 
-int				checkheight(node *tetr)
+int				checkheight(t_filist *tetr)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	if ((tetr->tetromap & tetr->power[60]) != 0)
@@ -27,9 +27,9 @@ int				checkheight(node *tetr)
 		return (2);
 }
 
-int				checkwidth(node *tetr)
+int				checkwidth(t_filist *tetr)
 {
-	int		i;
+	int			i;
 
 	i = 0;
 	if ((tetr->tetromap & tetr->power[60]) != 0)
@@ -42,12 +42,12 @@ int				checkwidth(node *tetr)
 		return (3);
 }
 
-node			*addnode(uint64_t *t, node *head, int tetrnum)
+t_filist		*addnode(uint64_t *t, t_filist *head, int tetrnum)
 {
-	node	*tetr;
-	int		i;
+	t_filist	*tetr;
+	int			i;
 
-	tetr = (node*)malloc(sizeof(node));
+	tetr = (t_filist*)malloc(sizeof(t_filist));
 	if (tetr == NULL)
 		return (NULL);
 	i = 0;
@@ -66,35 +66,29 @@ node			*addnode(uint64_t *t, node *head, int tetrnum)
 	return (tetr);
 }
 
-node			*createstruct(uint64_t *t, int tetramount)
+t_filist		*createstruct(uint64_t *t, int tetramount)
 {
-	int		tetrnum;
-	node	*tetr;
-	int		i;
+	t_filist	*tetr;
+	int			i;
 
-	tetr = (node*)malloc(sizeof(node));
-	if (tetr == NULL)
+	tetr = (t_filist*)malloc(sizeof(t_filist));
+	if ((i = -1) && tetr == NULL)
 		return (NULL);
 	tetr->tetromap = *t;
 	tetr->prev = NULL;
 	tetr->next = NULL;
 	tetr->line = 0;
-	i = 0;
-	while (i < 64)
-	{
+	while (++i < 64)
 		tetr->power[i] = ftpow(2, i, tetr);
-		i++;
-	}
 	tetr->height = checkheight(tetr);
 	tetr->width = checkwidth(tetr);
 	tetr->buff = tetr->tetromap;
-	tetrnum = 1;
-	while (tetrnum < tetramount)
+	i = 0;
+	while (++i < tetramount)
 	{
-		if (!(tetr->next = addnode(t, tetr, tetrnum)))
+		if (!(tetr->next = addnode(t, tetr, i)))
 			return (NULL);
 		tetr = tetr->next;
-		tetrnum++;
 	}
 	while (tetr->prev != NULL)
 		tetr = tetr->prev;

@@ -6,12 +6,11 @@
 /*   By: rofeldsp <rofeldsp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 12:36:46 by rofeldsp          #+#    #+#             */
-/*   Updated: 2019/10/27 12:36:46 by rofeldsp         ###   ########.fr       */
+/*   Updated: 2019/10/31 18:57:27 by atammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "fillit.h"
-#include "../includes/fillit.h"
+#include "fillit.h"
 
 int				ft_sqrt_round(int nb)
 {

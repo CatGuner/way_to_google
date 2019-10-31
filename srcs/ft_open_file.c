@@ -6,19 +6,18 @@
 /*   By: atammie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 18:14:52 by atammie           #+#    #+#             */
-/*   Updated: 2019/10/30 18:14:54 by atammie          ###   ########.fr       */
+/*   Updated: 2019/10/31 18:54:10 by atammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
-# include <stdio.h>
+#include "fillit.h"
 
 uint64_t	*ft_open_file(int fd, int *i)
 {
-	int 	red;
-	int 	k;
-	char 	buf[22];
-	uint64_t *ll;
+	int			red;
+	int			k;
+	char		buf[22];
+	uint64_t	*ll;
 
 	ll = (uint64_t*)ft_memalloc(27 * sizeof(uint64_t));
 	ft_bzero((void*)ll, 27);
@@ -40,10 +39,10 @@ uint64_t	*ft_open_file(int fd, int *i)
 
 uint64_t	ft_bit_term(char const *tmp, const int red)
 {
-	int i;
-	int lb;
-	int	line;
-	uint64_t term;
+	int			i;
+	int			lb;
+	int			line;
+	uint64_t	term;
 
 	term = 0;
 	i = 0;
@@ -51,12 +50,12 @@ uint64_t	ft_bit_term(char const *tmp, const int red)
 	line = 0;
 	while (i != red)
 	{
-		if (tmp[i] == '#') {
-			term = term | ((uint64_t) 1 << (63 - i + lb - line));
-		}
-		if (tmp[i] == '\n') {
+		if (tmp[i] == '#')
+			term = term | ((uint64_t)1 << (63 - i + lb - line));
+		if (tmp[i] == '\n')
+		{
 			lb++;
-			line+=12;
+			line += 12;
 		}
 		i++;
 	}

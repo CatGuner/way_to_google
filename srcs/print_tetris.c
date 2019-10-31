@@ -6,12 +6,11 @@
 /*   By: rofeldsp <rofeldsp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 12:36:51 by rofeldsp          #+#    #+#             */
-/*   Updated: 2019/10/27 12:37:06 by rofeldsp         ###   ########.fr       */
+/*   Updated: 2019/10/31 18:57:56 by atammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "fillit.h"
-#include "../includes/fillit.h"
+#include "fillit.h"
 
 char			*map_to_print(int sqrsize)
 {
@@ -35,7 +34,7 @@ char			*map_to_print(int sqrsize)
 	return (map);
 }
 
-char			*fillfigure(char *map, node *tetr, int sqrsize, char letter)
+char			*fillfigure(char *map, t_filist *tetr, int sqrsize, char letter)
 {
 	int			i;
 	int			j;

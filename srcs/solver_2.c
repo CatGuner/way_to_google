@@ -6,14 +6,13 @@
 /*   By: rofeldsp <rofeldsp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 12:36:17 by rofeldsp          #+#    #+#             */
-/*   Updated: 2019/10/27 12:37:06 by rofeldsp         ###   ########.fr       */
+/*   Updated: 2019/10/31 19:56:18 by atammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "fillit.h"
-#include "../includes/fillit.h"
+#include "fillit.h"
 
-int				linebreak(node *tetr, int sqrsize)
+int				linebreak(t_filist *tetr, int sqrsize)
 {
 	if (((tetr->tetromap & tetr->power[64 - sqrsize]) != 0) || (
 			(tetr->tetromap & tetr->power[48 - sqrsize]) != 0) || (
@@ -30,7 +29,7 @@ int				linebreak(node *tetr, int sqrsize)
 	return (1);
 }
 
-int				move(node *tetr, int sqrsize)
+int				move(t_filist *tetr, int sqrsize)
 {
 	int ret;
 
@@ -40,7 +39,7 @@ int				move(node *tetr, int sqrsize)
 	return (1);
 }
 
-int				checkmap(uint16_t *map, int sqrsize, node *tetr)
+int				checkmap(uint16_t *map, int sqrsize, t_filist *tetr)
 {
 	if (sqrsize < tetr->height || sqrsize < tetr->width)
 		return (-1);
@@ -56,7 +55,7 @@ int				checkmap(uint16_t *map, int sqrsize, node *tetr)
 	}
 }
 
-int				moveprevnode(uint16_t *map, int sqrsize, node *tetr)
+int				moveprevnode(uint16_t *map, int sqrsize, t_filist *tetr)
 {
 	if (tetr->prev == NULL)
 		return (-1);
@@ -65,4 +64,31 @@ int				moveprevnode(uint16_t *map, int sqrsize, node *tetr)
 	if (move(tetr, sqrsize) < 0)
 		return (-1);
 	return (1);
+}
+
+void			body_of_prog(uint64_t *tetro, int nt)
+{
+	char		*map;
+	int			sqrsize;
+	t_filist	*tetr;
+	char		letter;
+
+	letter = 65;
+	if (!(tetr = createstruct(tetro, nt)))
+		exit(-1);
+	if (!(sqrsize = deploy(tetr, nt)))
+		exit(-1);
+	if (!(map = map_to_print(sqrsize)))
+		exit(-1);
+	while (nt > 0)
+	{
+		map = fillfigure(map, tetr, sqrsize, letter);
+		letter++;
+		if (tetr->next != NULL)
+			tetr = tetr->next;
+		nt--;
+	}
+	freelist(tetr);
+	ft_putstr(map);
+	free(map);
 }

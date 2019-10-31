@@ -6,13 +6,13 @@
 /*   By: atammie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 18:19:18 by atammie           #+#    #+#             */
-/*   Updated: 2019/10/30 18:19:20 by atammie          ###   ########.fr       */
+/*   Updated: 2019/10/31 18:30:40 by atammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/fillit.h"
+#include "fillit.h"
 
-int 	ft_check_valid(uint64_t term)
+int		ft_check_valid(uint64_t term)
 {
 	if (term == 9223512776490647552ULL ||
 		term == 17293822569102704640ULL ||

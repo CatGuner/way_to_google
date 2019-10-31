@@ -6,16 +6,15 @@
 /*   By: rofeldsp <rofeldsp@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 12:36:30 by rofeldsp          #+#    #+#             */
-/*   Updated: 2019/10/27 12:36:30 by rofeldsp         ###   ########.fr       */
+/*   Updated: 2019/10/31 18:29:49 by atammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "fillit.h"
-#include "../includes/fillit.h"
+#include "fillit.h"
 
-void			freelist(node *tetr)
+void			freelist(t_filist *tetr)
 {
-	node	*tmp;
+	t_filist	*tmp;
 
 	while (tetr != NULL)
 	{
