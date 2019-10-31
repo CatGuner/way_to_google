@@ -45,10 +45,10 @@ uint64_t	ft_bit_term(char const *tmp, const int red)
 	uint64_t	term;
 
 	term = 0;
-	i = 0;
+	i = -1;
 	lb = 0;
 	line = 0;
-	while (i != red)
+	while (++i != red)
 	{
 		if (tmp[i] == '#')
 			term = term | ((uint64_t)1 << (63 - i + lb - line));
@@ -57,7 +57,7 @@ uint64_t	ft_bit_term(char const *tmp, const int red)
 			lb++;
 			line += 12;
 		}
-		i++;
+		ft_check_simbols(tmp[i]);
 	}
 	term <<= (16 * ft_height_shift(tmp) + ft_width_shift(tmp));
 	return (term);

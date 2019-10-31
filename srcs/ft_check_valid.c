@@ -36,3 +36,18 @@ int		ft_check_valid(uint64_t term)
 		return (1);
 	return (0);
 }
+
+void	ft_check_simbols(char s)
+{
+	if (s != '\n' && s != '#' && s != '.')
+	{
+		ft_putstr("Invalid simbol");
+		exit(0);
+	}
+}
+
+void	print_error(void)
+{
+	ft_putstr("Error file");
+	exit(0);
+}

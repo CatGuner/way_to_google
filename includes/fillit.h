@@ -56,5 +56,7 @@ int					ft_term_width(uint64_t term);
 int					ft_height_shift(const char *tmp);
 int					ft_width_shift(const char *tmp);
 void				body_of_prog(uint64_t *tetro, int nt);
+void				ft_check_simbols(char s);
+void				print_error(void);
 
 #endif
