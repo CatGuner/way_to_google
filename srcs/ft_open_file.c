@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include <stdio.h>
 
 uint64_t	*ft_open_file(int fd, int *i)
 {
@@ -26,8 +25,6 @@ uint64_t	*ft_open_file(int fd, int *i)
 	while ((red = read(fd, buf, 21)) >= 19 && k != 27)
 	{
 		buf[red] = '\0';
-	//	printf("\n{%i} = \n%s", red, buf);
-	//	printf("-------");
 		ll[k] = ft_bit_term(buf, red);
 		if (!(ft_check_valid(ll[k])))
 		{
