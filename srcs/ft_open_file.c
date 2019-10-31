@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include <stdio.h>
 
 uint64_t	*ft_open_file(int fd, int *i)
 {
@@ -22,9 +23,11 @@ uint64_t	*ft_open_file(int fd, int *i)
 	ll = (uint64_t*)ft_memalloc(27 * sizeof(uint64_t));
 	ft_bzero((void*)ll, 27);
 	k = *i;
-	while ((red = read(fd, buf, 21)) >= 20 && k != 27)
+	while ((red = read(fd, buf, 21)) >= 19 && k != 27)
 	{
 		buf[red] = '\0';
+	//	printf("\n{%i} = \n%s", red, buf);
+	//	printf("-------");
 		ll[k] = ft_bit_term(buf, red);
 		if (!(ft_check_valid(ll[k])))
 		{
@@ -33,6 +36,8 @@ uint64_t	*ft_open_file(int fd, int *i)
 		}
 		k++;
 	}
+	if (red < 19 && red != 0)
+		print_error();
 	*i = k;
 	return (ll);
 }
