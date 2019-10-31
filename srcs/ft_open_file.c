@@ -28,7 +28,7 @@ uint64_t	*ft_open_file(int fd, int *i)
 		ll[k] = ft_bit_term(buf, red);
 		if (!(ft_check_valid(ll[k])))
 		{
-			ft_putstr("Error");
+			ft_putstr("Error termino");
 			exit(0);
 		}
 		k++;

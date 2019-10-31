@@ -21,12 +21,24 @@ int				main(int ac, char **av)
 	if (ac == 2)
 	{
 		tetramount = 0;
-		fd = open(av[1], O_RDONLY);
+		if (!(fd = open(av[1], O_RDONLY)))
+		{
+			ft_putstr("Missing file");
+			exit(0);
+		}
 		tetro = ft_open_file(fd, &tetramount);
+		if (tetramount == 0 || tetramount > 26)
+		{
+			ft_putstr("Error file");
+			exit(0);
+		}
 		body_of_prog(tetro, tetramount);
 		free(tetro);
 		return (0);
 	}
 	else
+	{
+		ft_putstr("usage: ./fillit \"file name\"");
 		exit(0);
+	}
 }
