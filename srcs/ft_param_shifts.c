@@ -15,12 +15,14 @@
 int		ft_term_height(uint64_t term)
 {
 	int		count;
+	unsigned long	aof;
 
 	count = 0;
-	while ((term & 0xF000000000000000))
+	aof = 0xF000000000000000;
+	while (!(term & aof) && count != 4)
 	{
 		count++;
-		term <<= 16;
+		aof >>= 16;
 	}
 	return (count);
 }
@@ -30,9 +32,9 @@ int		ft_term_width(uint64_t term)
 	int				count;
 	unsigned long	aof;
 
-	aof = 0xA000A000A000A000;
+	aof = 0x8000800080008000;
 	count = 0;
-	while ((term & aof))
+	while (!(term & aof) && count != 4)
 	{
 		count++;
 		aof >>= 1;

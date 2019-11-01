@@ -14,9 +14,6 @@
 
 int				checkheight(t_filist *tetr)
 {
-	int			i;
-
-	i = 0;
 	if ((tetr->tetromap & tetr->power[60]) != 0)
 		return (1);
 	if ((tetr->tetromap & 32768) != 0)
@@ -29,9 +26,6 @@ int				checkheight(t_filist *tetr)
 
 int				checkwidth(t_filist *tetr)
 {
-	int			i;
-
-	i = 0;
 	if ((tetr->tetromap & tetr->power[60]) != 0)
 		return (4);
 	if ((tetr->tetromap & 32768) != 0)

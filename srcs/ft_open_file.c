@@ -61,6 +61,6 @@ uint64_t	ft_bit_term(char const *tmp, const int red)
 		}
 		ft_check_simbols(tmp[i]);
 	}
-	term <<= (16 * ft_height_shift(tmp) + ft_width_shift(tmp));
+	term <<= (16 * ft_term_height(term) + ft_term_width(term));
 	return (term);
 }
