@@ -6,7 +6,7 @@
 /*   By: atammie <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/30 18:28:51 by atammie           #+#    #+#             */
-/*   Updated: 2019/10/31 18:56:13 by atammie          ###   ########.fr       */
+/*   Updated: 2019/11/02 22:20:22 by atammie          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int		ft_term_height(uint64_t term)
 {
-	int		count;
+	int				count;
 	unsigned long	aof;
 
 	count = 0;

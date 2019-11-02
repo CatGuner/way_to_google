@@ -41,13 +41,13 @@ void	ft_check_simbols(char s)
 {
 	if (s != '\n' && s != '#' && s != '.')
 	{
-		ft_putstr("Invalid simbol");
+		ft_putstr("error");
 		exit(0);
 	}
 }
 
 void	print_error(void)
 {
-	ft_putstr("Error file");
+	ft_putstr("error");
 	exit(0);
 }

@@ -28,6 +28,7 @@ int				main(int ac, char **av)
 			print_error();
 		body_of_prog(tetro, tetramount);
 		free(tetro);
+		close(fd);
 		return (0);
 	}
 	else

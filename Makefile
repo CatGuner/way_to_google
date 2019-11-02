@@ -57,9 +57,11 @@ $(OBJ_DIR)/%.o:$(SRC_DIR)/%.c
 
 clean:
 	rm -rf $(OBJ_DIR)
+	make -C $(LIB_DIR) clean
 
 fclean: clean
 	rm -rf $(NAME)
+	make -C $(LIB_DIR) fclean
 
 re:
 	@$(MAKE) fclean --no-print-directory
